@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/marked01one/Shared/code/schoolwork/ECE4310/seminar4/example/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+ECE_BUF_SIZE	test_main.c	/^#define ECE_BUF_SIZE /;"	d	file:
+KDIR	Makefile	/^KDIR=\/usr\/src\/linux-headers-$(shell uname -r)$/;"	m
+SIZE	sample.c	/^#define SIZE /;"	d	file:
+all	Makefile	/^all:$/;"	t
+clean	Makefile	/^clean:$/;"	t
+ece_buffer	test_main.c	/^static char ece_buffer[ECE_BUF_SIZE];$/;"	v	typeref:typename:char[]	file:
+ece_end	test_main.c	/^void ece_end(void) {$/;"	f	typeref:typename:void
+ece_fops	test_main.c	/^static struct file_operations ece_fops =$/;"	v	typeref:struct:file_operations	file:
+ece_init	test_main.c	/^int ece_init(void) {$/;"	f	typeref:typename:int
+ece_offset_r	test_main.c	/^int ece_offset_r;$/;"	v	typeref:typename:int
+ece_offset_w	test_main.c	/^int ece_offset_w;$/;"	v	typeref:typename:int
+ece_read	test_main.c	/^static ssize_t ece_read(struct file* fp, char *buf, size_t count, loff_t* offset)$/;"	f	typeref:typename:ssize_t	file:
+ece_size	test_main.c	/^int ece_size;$/;"	v	typeref:typename:int
+ece_write	test_main.c	/^static ssize_t ece_write(struct file* fp, const char *buf, size_t count, loff_t *op)$/;"	f	typeref:typename:ssize_t	file:
+isReg	test_main.c	/^int isReg;$/;"	v	typeref:typename:int
+main	sample.c	/^int main()$/;"	f	typeref:typename:int
+major	test_main.c	/^int major;$/;"	v	typeref:typename:int

@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/marked01one/Shared/code/schoolwork/ECE4310/seminar4/kernel/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+BUF_SIZE	user_input.c	/^#define BUF_SIZE /;"	d	file:
+INCLUDE_VERMAGIC	user_input.mod.c	/^#define INCLUDE_VERMAGIC$/;"	d	file:
+KDIR	Makefile	/^KDIR=\/usr\/src\/linux-headers-$(shell uname -r)$/;"	m
+PROC_NAME	user_input.c	/^#define PROC_NAME /;"	d	file:
+____versions	user_input.mod.c	/^static const struct modversion_info ____versions[]$/;"	v	typeref:typename:const struct modversion_info[]__used __section ("__versions")	file:
+all	Makefile	/^all:$/;"	t
+clean	Makefile	/^clean:$/;"	t
+input_buffer	user_input.c	/^static char input_buffer[BUF_SIZE];$/;"	v	typeref:typename:char[]	file:
+proc_file_ops	user_input.c	/^static struct proc_ops proc_file_ops = {$/;"	v	typeref:struct:proc_ops	file:
+proc_write	user_input.c	/^static ssize_t proc_write(struct file* file, const char *buffer, size_t count, loff_t *pos)$/;"	f	typeref:typename:ssize_t	file:
+user_input_end	user_input.c	/^static void user_input_end(void)$/;"	f	typeref:typename:void	file:
+user_input_init	user_input.c	/^static int user_input_init(void) $/;"	f	typeref:typename:int	file:
