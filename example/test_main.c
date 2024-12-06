@@ -3,7 +3,6 @@
 #include <linux/kern_levels.h>
 #include <linux/fs.h>
 
-MODULE_LICENSE("GPL");
 
 #define ECE_BUF_SIZE 256
 
@@ -97,6 +96,9 @@ static ssize_t ece_read(struct file* fp, char *buf, size_t count, loff_t* offset
 }
 
 
+
+
+
 module_init(ece_init);
 module_exit(ece_end);
-
+MODULE_LICENSE("GPL");
