@@ -9,76 +9,26 @@
 
 #define DEVICE_NAME "adder"
 #define CLASS_NAME "calc"
+#define STACK_SIZE 256
 
 // Structure for pasing two numbers
 struct numbers {
-    char* expression;
-    int exp_length;
+    int num1;
+    int num2;
+    char expr;
     int result;
 };
-
 int ret;
 
-static int precedence(char c) {
-    switch (c) {
-        case '^': return 3;
-        case '/': return 2;
-        case '*': return 2;
-        case '+': return 1;
-        case '-': return 1;
-        default: return -1;
+static int calculate(struct numbers* nums) {
+    switch (nums->expr) {
+        case '+': return nums->num1 + nums->num2;
+        case '-': return nums->num1 - nums->num2;
+        case '*': return nums->num1 * nums->num2;
+        case '/': return nums->num1 / nums->num2;
+        default: return 0;
     }
 }
-
-
-static int infixToPostfix(char* exp, int len) {
-    char result[len];
-    char stack[len];
-    int j = 0;
-    int top = -1;
-
-    for (int i = 0; i < len; i++) {
-        char c = exp[i];
-
-        // If the scanned character is 
-        // an operand, add it to the output string.
-        if (isalnum(c))
-            result[j++] = c;
-
-        // If the scanned character is
-        // an ‘(‘, push it to the stack.
-        else if (c == '(')
-            stack[++top] = '(';
-
-        // If the scanned character is an ‘)’,
-        // pop and add to the output string from the stack 
-        // until an ‘(‘ is encountered.
-        else if (c == ')') {
-            while (top != -1 && stack[top] != '(') {
-                result[j++] = stack[top--];
-            }
-            top--; 
-        }
-
-        // If an operator is scanned
-        else {
-            while (top != -1 && (prec(c) < prec(stack[top]) ||
-                                 prec(c) == prec(stack[top]))) {
-                result[j++] = stack[top--];
-            }
-            stack[++top] = c;
-        }
-    }
-
-    // Pop all the remaining elements from the stack
-    while (top != -1) {
-        result[j++] = stack[top--];
-    }
-
-    result[j] = '\0';
-    printf("%s\n", result);
-}
-
 
 // IOCTL command
 #define MAGIC_NUMBER 'k'
@@ -119,12 +69,15 @@ static long device_ioctl(struct file* filep, unsigned int cmd, unsigned long arg
     ret = copy_from_user(&nums, (struct numbers*) arg, sizeof(struct numbers));
     if (ret) return -EFAULT;
 
-    nums.result = nums.num1 + nums.num2;
+    printk(KERN_INFO "Calculator operation detected\n");
+
+    int result = calculate(&nums);
+    nums.result = result;
 
     ret = copy_to_user((struct numbers*) arg, &nums, sizeof(struct numbers));
     if (ret) return -EFAULT;
     
-    printk(KERN_INFO "Addition performed: %d + %d = %d\n", nums.num1, nums.num2, nums.result);
+    printk(KERN_INFO "Calculation: %d %c %d = %d\n", nums.num1, nums.expr, nums.num2, nums.result);
 
     return 0;         
 }
